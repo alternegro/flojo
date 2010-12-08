@@ -16,10 +16,11 @@
 	See test.rb, test_active_record.rb and test_helper.rb for concrete examples.
 	
 == Install       
-
-	Simply require flojo.rb.  
+  
+	Install the gem with "gem install flojo".
+	Alternatively, download lib/flojo.rb.  
 	If you are using rails, copy flojo.rb to your project's <b>lib</b> folder.   
-	Alternatively, install the gem with gem install flojo.  
+	  
 	
 == Usage  
 
