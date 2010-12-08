@@ -12,6 +12,7 @@
 	object.wf_current_state - Returns the objects current state.
 	
 	To avoid method name collisions with your classes, Flojo methods are usually prefixed with "wf_".   
+	The "wf_" is also handy when you need to interact with your objects in irb. Just type "wf_" and tab...
 	
 	See test.rb, test_active_record.rb and test_helper.rb for concrete examples.
 	
