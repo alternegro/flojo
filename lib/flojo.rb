@@ -16,7 +16,12 @@ module Flojo
       end
         	  
   	  def self.workflow_states(s)
-        @workflow_states = s.uniq
+        @workflow_states = s.uniq.compact
+        
+        s.each do |st|
+          raise "Invalid Parameter. State array elements should be symbols" unless Symbol === st
+        end
+        
 	      self.synthesize_state_query_methods
       end
 	    
@@ -29,7 +34,7 @@ module Flojo
 	    end  
 	    
 	    def self.valid_state(*states)
-	      states.each {|st| return false if !@workflow_states.include?(st) && (st != :any)}                                               
+	      states.each {|st| return false if (!@workflow_states.include?(st) && (st != :any)) || !(Symbol === st)}                                               
         return true
       end 
             
