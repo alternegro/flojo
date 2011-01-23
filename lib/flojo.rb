@@ -33,14 +33,14 @@ module Flojo
 	      @workflow_states.each {|st| define_method("wf_#{st}?") { st.eql?(wf_current_state)}}
 	    end  
 	    
-	    def self.valid_state(*states)
+	    def self.valid_states?(*states)
 	      states.each {|st| return false if (!@workflow_states.include?(st) && (st != :any)) || !(Symbol === st)}                                               
         return true
       end 
             
   	end
       
-    host.class_eval("def self.transition(start_state, end_state); raise 'Invalid Transition State' unless self.valid_state(start_state, end_state); @wf_current_event_transition_map[start_state]=end_state; end")
+    host.class_eval("def self.transition(start_state, end_state); raise 'Invalid Transition State' unless self.valid_states?(start_state, end_state); @wf_current_event_transition_map[start_state]=end_state; end")
 	      
     host.class_eval do
       def self.event(e, &actions)	  

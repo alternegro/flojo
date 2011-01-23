@@ -1,1 +1,2 @@
 0.5.1 Added workflow_states and transition parameter checks.
+0.5.1.1 Renamed valid_state method to valid_states?
