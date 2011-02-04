@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('flojo', '0.5.1.1') do |p|
+Echoe.new('flojo', '0.5.2') do |p|
   p.description    = "ActiveRecord aware workflow (state machine) module that will also work with any plain old ruby object." 
   p.summary    = "When used within an ActiveRecord subclass, flojo events can automatically save a record after a transition.     
 	
