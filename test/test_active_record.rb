@@ -28,8 +28,8 @@ class Counter < ActiveRecord::Base
   
   event :down do
     transition :one, :three
-	  transition :two, :one
-	  transition :three, :two
+	transition :two, :one
+	transition :three, :two
   end
   
   def wf_on_enter_one
@@ -55,7 +55,6 @@ class Counter < ActiveRecord::Base
   def wf_after_save
     "wf_after_save"
   end
-
 end     
 
 
@@ -76,6 +75,7 @@ class TestWorkflow < Test::Unit::TestCase
   def test_stored_counter   
     stored_counter = Counter.first
     assert_equal(:one, stored_counter.wf_current_state, "Initial state must be :one")   
+    assert_equal("one", stored_counter.wf_state, "Stored state must be one")
     
     stored_counter.wf_up!
     assert_equal(:two, stored_counter.wf_current_state, "Current state must be :two")   
@@ -95,7 +95,7 @@ class TestWorkflow < Test::Unit::TestCase
   
   def test_new_counter 
     new_counter = Counter.new   
-    assert_equal(nil, new_counter.wf_state, "Stored state must be nil")
+    assert_equal("one", new_counter.wf_state, "Stored state must be nil")
     assert_equal(:one, new_counter.wf_current_state, "Initial state must be :one")  
     assert_equal(1, Counter.count)
     
