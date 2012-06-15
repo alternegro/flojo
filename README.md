@@ -6,27 +6,20 @@ When used within an ActiveRecord subclass, flojo events can automatically save a
 After including the module in your class and configuring it with an `event`, and a `state`, 
 you can interact with instances of that class using the dynamically generated methods of the following form:
 
-Triggers event and invokes any applicable transitions
 ```ruby
-object.wf_event
+object.wf_event #Triggers event and invokes any applicable transitions
 ```	
-
-
-Behaves just like object.wf_event but will also persist object.  
+ 
 ```ruby
-object.wf_event!
+object.wf_event! #Behaves just like object.wf_event but will also persist object. 
 ```
 
-
-Returns true if the current workflow state is _state_.
 ```ruby
-object.wf_state?   
+object.wf_state?  #Returns true if the current workflow state is _state_.  
 ```
 
-
-Returns the objects current state.
 ```ruby
-object.wf_current_state
+object.wf_current_state #Returns the objects current state.
 ```
 
 To avoid method name collisions with your classes, Flojo methods are usually prefixed with `wf_`.   
