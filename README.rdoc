@@ -1,4 +1,4 @@
-= Flojo
+== Flojo
           
 	Flojo is a simple ActiveRecord aware state machine module, but it will also work with any plain old ruby object.  
 	When used within an ActiveRecord subclass, flojo events can automatically save a record after a transition.     
