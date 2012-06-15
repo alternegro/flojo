@@ -6,9 +6,13 @@
 	After including the module in your class and configuring it with an event _event_, and a state _state_, 
 	you can interact with instances of that class using the dynamically generated methods of the following form:
 	
-	object.wf_event  - Triggers event and invokes any applicable transitions<br>
+	object.wf_event  - Triggers event and invokes any applicable transitions
+	
+	
 	object.wf_event! - Behaves just like object.wf_event but will also persist object.
+	
 	object.wf_state? - Returns true if the current workflow state is _state_.   
+	
 	object.wf_current_state - Returns the objects current state.
 	
 	To avoid method name collisions with your classes, Flojo methods are usually prefixed with "wf_".   
