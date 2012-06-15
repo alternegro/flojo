@@ -3,37 +3,44 @@
 Flojo is a simple ActiveRecord aware state machine module, but it will also work with any plain old ruby object.  
 When used within an ActiveRecord subclass, flojo events can automatically save a record after a transition.     
 
-After including the module in your class and configuring it with an event _event_, and a state _state_, 
+After including the module in your class and configuring it with an `event`, and a `state`, 
 you can interact with instances of that class using the dynamically generated methods of the following form:
 
 Triggers event and invokes any applicable transitions
 ```ruby
 object.wf_event
 ```	
+
+
 Behaves just like object.wf_event but will also persist object.  
 ```ruby
 object.wf_event!
 ```
 
+
 Returns true if the current workflow state is _state_.
 ```ruby
 object.wf_state?   
 ```
+
+
 Returns the objects current state.
 ```ruby
 object.wf_current_state
 ```
 
-To avoid method name collisions with your classes, Flojo methods are usually prefixed with "wf_".   
-The "wf_" is also handy when you need to interact with your objects in irb. Just type "wf_" and tab...
+To avoid method name collisions with your classes, Flojo methods are usually prefixed with `wf_`.   
+The `wf_` is also handy when you need to interact with your objects in irb. Just type `wf_` and tab...
 
 See test.rb, test_active_record.rb and test_helper.rb for concrete examples.
 
 ## Install       
 
-Install the gem with "gem install flojo".
-Alternatively, download lib/flojo.rb.  
-If you are using rails, copy flojo.rb to your project's <b>lib</b> folder.   
+Install the gem with 
+```console
+gem install flojo
+```
+Alternatively, download lib/flojo.rb and copy it to your project's <b>lib</b> folder.   
 	  
 	
 ## Usage  
@@ -73,8 +80,9 @@ class Baby
 	transition :any, :crying
   end
 
-  # event, enter state and exit state callbacks should take the form wf_on_event, 
-  wf_on_enter_state and wf_on_exit_state and are only called if they are defined
+
+  # event, enter state and exit state callbacks should take the following forms:
+  # wf_on_event, wf_on_enter_state and wf_on_exit_state and are only called if they are defined  
   def wf_on_spank
 	puts "Never spank a baby! Somebody dial 911!"
   end
@@ -114,8 +122,8 @@ trigger a record save immediately after transition.
 
 eg:
 ```ruby
-baby.wf_feed  #Will *not* trigger a save. 
-baby.wf_feed! -#*Will* trigger a save.
+baby.wf_feed  #Will not trigger a save. 
+baby.wf_feed! #Will trigger a save.
 ```  
 
 ## Copyright
