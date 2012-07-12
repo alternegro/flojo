@@ -1,10 +1,10 @@
 module Flojo 
   def Flojo.included(host)
     
-  	host.class_eval do          
-  	  attr_writer :wf_current_state 
-  	  attr_accessor :_wf_current_event_transition_map, :wf_previous_state
-  	  protected :wf_current_state=, :_set_workflow_state 
+    host.class_eval do          
+      attr_writer :wf_current_state 
+      attr_accessor :_wf_current_event_transition_map, :wf_previous_state
+      protected :wf_current_state=, :_set_workflow_state 
        
       def wf_current_state
         wf_current_state = @wf_current_state.nil? ? wf_initial_state : @wf_current_state 
@@ -30,7 +30,7 @@ module Flojo
           raise "Invalid Parameter. State array elements should be symbols" unless Symbol === st
         end
         
-	    self.synthesize_state_query_methods
+        self.synthesize_state_query_methods
       end
 	    
       def self.wf_states
@@ -38,11 +38,11 @@ module Flojo
       end                           
 
       def self.synthesize_state_query_methods
-	    @workflow_states.each {|st| define_method("wf_#{st}?") { st.eql?(wf_current_state)}}
-	  end  
+        @workflow_states.each {|st| define_method("wf_#{st}?") { st.eql?(wf_current_state)}}
+      end  
 	    
-	  def self.valid_states?(*states)
-	    states.each {|st| return false if (!@workflow_states.include?(st) && (st != :any)) || !(Symbol === st)}                                               
+      def self.valid_states?(*states)
+        states.each {|st| return false if (!@workflow_states.include?(st) && (st != :any)) || !(Symbol === st)}                                               
         return true
       end             
   	end
@@ -98,6 +98,3 @@ module Flojo
   end  
   
 end
-
-
-
