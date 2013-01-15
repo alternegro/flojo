@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Flojo::VERSION
   gem.authors       = ["Altern Egro"]
   gem.email         = ["alternegro@me.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = 'AR aware workflow'
+  gem.summary       = 'AR aware workflow'
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
