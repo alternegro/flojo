@@ -3,7 +3,7 @@
 Flojo is a simple ActiveRecord aware state machine module, but it will also work with any plain old ruby object.  
 When used within an ActiveRecord subclass, flojo events can automatically save a record after a transition.     
 
-After including the module in your class and configuring it with an `event`, and a `state`, 
+After including the module in your class and configuring it with an `event` and a `state`, 
 you can interact with instances of that class using the dynamically generated methods of the following form:
 
 ```ruby
